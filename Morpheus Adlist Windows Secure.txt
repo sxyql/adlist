@@ -77,7 +77,6 @@
 127.0.0.1 telecommand.telemetry.microsoft.com
 127.0.0.1 telecommand.telemetry.microsoft.com.nsatc.net
 127.0.0.1 telemetry.appex.bing.net
-127.0.0.1 telemetry.appex.bing.net:443
 127.0.0.1 telemetry.microsoft.com
 127.0.0.1 telemetry.urs.microsoft.com
 127.0.0.1 ui.skype.com
