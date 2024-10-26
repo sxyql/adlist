@@ -1,0 +1,38 @@
+name: Update Adlist
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Täglich um Mitternacht (UTC) ausführen
+  workflow_dispatch:      # Manuelles Starten der Action möglich
+
+jobs:
+  update-adlist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download and merge adlists
+        run: |
+          # Erstelle eine leere Datei für die kombinierte Adlist
+          echo "# Custom Combined Adlist" > adlist.txt
+          
+          # Lade jede URL aus sources.txt herunter und füge sie zu adlist.txt hinzu
+          while read -r url; do
+            echo "Adding $url..."
+            curl -s "$url" | grep -v "^#" >> adlist.txt
+          done < sources.txt
+          
+          # Duplizierte Einträge entfernen
+          sort -u -o adlist.txt adlist.txt
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "your-email@example.com"
+          git config --local user.name "GitHub Action"
+          git add adlist.txt
+          git commit -m "Update adlist on $(date)"
+          git push
+        env:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
