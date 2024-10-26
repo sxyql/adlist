@@ -5,4 +5,4 @@ Also other blocklists are added to block more ads and trackers.
 By the fiel adlist.txt are used following blocklists
 [firebog.net](firebog.net) All List that are green marked
 [Hazegi Ultimate List](https://github.com/hagezi/dns-blocklists?tab=readme-ov-file#ultimate) and
-[Blocklist](https://raw.githubusercontent.com/d3ward/toolz/master/src/d3host.txt) ([Website](https://d3ward.github.io/toolz/adblock.html))
+[d3ward Blocklist](https://raw.githubusercontent.com/d3ward/toolz/master/src/d3host.txt) ([d3ward Website](https://d3ward.github.io/toolz/adblock.html))
