@@ -2,8 +2,8 @@ name: Update Adlist
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Täglich um Mitternacht (UTC) ausführen
-  workflow_dispatch:      # Manuelles Starten der Action möglich
+    - cron: '0 0 */2 * *'
+  workflow_dispatch:
 
 jobs:
   update-adlist:
@@ -15,16 +15,16 @@ jobs:
 
       - name: Download and merge adlists
         run: |
-          # Erstelle eine leere Datei für die kombinierte Adlist
+          # Create a empty file for the compined adblocklists
           echo "# Custom Combined Adlist" > adlist.txt
 
-          # Lade jede URL aus sources.txt herunter und füge sie zu adlist.txt hinzu
+          # Download every URL from sources.txt und add them to adlist.txt
           while read -r url; do
             echo "Adding $url..."
             curl -s "$url" | grep -v "^#" >> adlist.txt
           done < sources.txt
 
-          # Duplizierte Einträge entfernen
+          # Removed duplicate entries
           sort -u -o adlist.txt adlist.txt
 
       - name: Commit and push changes
