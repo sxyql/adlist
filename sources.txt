@@ -29,3 +29,4 @@ https://urlhaus.abuse.ch/downloads/hostfile/
 https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser
 https://raw.githubusercontent.com/d3ward/toolz/master/src/d3host.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/ultimate-compressed.txt
+https://raw.githubusercontent.com/sxyql/adlist/refs/heads/main/Morpheus_Adlist_Windows_Secure.txt
